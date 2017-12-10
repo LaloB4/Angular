@@ -68,3 +68,24 @@ var desiredCar = myArray[0], thirdOption = myArray[1], secondOption = myArray[2]
 /*************************************^
 *Promesas en ES6*
 ***************************************/
+//console.log("Alert 1");
+var myPromise1 = new Promise(function (resolve, rejected) {
+    setTimeout(function () {
+        //console.log("Promise finished");
+        resolve();
+    }, 1500);
+});
+//console.log("Alert 2");
+myPromise1.then(function () {
+    //console.log("Function executed correctly!");
+}, function () {
+    //console.log("Function NOT executed correctly!");
+});
+function showDetails(team) {
+    console.log(team.name + ", " + team.noOnTable);
+}
+var pumas = {
+    name: "UNAM",
+    noOnTable: 1
+};
+//showDetails(pumas);

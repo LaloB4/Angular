@@ -88,3 +88,44 @@ let [desiredCar,thirdOption,secondOption] = myArray;
 /*************************************^
 *Promesas en ES6*
 ***************************************/
+
+//console.log("Alert 1");
+
+let myPromise1 = new Promise(function(resolve, rejected){
+
+  setTimeout(() => {
+    //console.log("Promise finished");
+    resolve();
+  }, 1500);
+
+});
+
+//console.log("Alert 2");
+
+myPromise1.then(function(){
+    //console.log("Function executed correctly!");
+},function(){
+    //console.log("Function NOT executed correctly!");
+});
+
+//console.log("Alert 3");
+
+/*************************************
+*Interfaces en TypeScript*
+***************************************/
+
+interface Teams{
+  name:string,
+  noOnTable:number
+}
+
+function showDetails(team:Teams){
+  console.log(team.name + ", " + team.noOnTable);
+}
+
+let pumas:Teams = {
+  name: "UNAM",
+  noOnTable:1
+};
+
+//showDetails(pumas);
