@@ -1,23 +1,31 @@
 <div class="container main-container">
-  <h1>Heroes <small>DC and Marvel</small></h1>
+  <h1>Searching for: <small>{{heroeToLookFor}}</small></h1>
   <hr>
+  <div class="row animated fadeIn fast" *ngIf="heroeSearch.length == 0">
+    <div class="col-md-12">
+      <div class="alert alert-info" role="alert">
+        There are not results for heroe name: {{heroeToLookFor}}
+      </div>
+    </div>
+  </div>
   <div class="card-columns">
-    <div class="card animated fadeIn fast" *ngFor="let hero of heroes; let i = index">
+    <div class="card animated fadeIn fast" *ngFor="let hero of heroeSearch; let i = index">
       <img class="card-img-top" [src]="hero.img" [alt]="hero.casa">
       <div class="card-body">
         <h4 class="card-title">{{hero.nombre}}</h4>
         <p class="card-text">{{hero.bio}}</p>
         <p class="card-text"><small class="text-muted">{{hero.aparicion}}</small></p>
 
+        <!--
         <button (click) = "showHeroDetails(i)" type="button" class="btn btn-outline-primary btn-block">
           Show details...
-        </button>
+        </button>-->
 
-        <!--
-        <a [routerLink] = "['/heroe', i]" class="btn btn-outline-primary btn-block">
-          View details...
+
+        <a [routerLink] = "['/heroes']" class="btn btn-outline-danger btn-block">
+          Back
         </a>
-      -->
+
       </div>
     </div>
   </div>
