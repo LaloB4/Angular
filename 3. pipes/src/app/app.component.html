@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="row">
+      <h1>Pipes</h1>
+      <br>
+      <hr>
+      <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Input</th>
+      <th scope="col">Pipe </th>
+      <th scope="col">Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{name}}</td>
+      <td>uppercase</td>
+      <td>{{name | uppercase}}</td>
+    </tr>
+    <tr>
+      <td>{{name}}</td>
+      <td>lowercase</td>
+      <td>{{name | lowercase}}</td>
+    </tr>
+    <tr>
+      <td>{{name}}</td>
+      <td>slice:3</td>
+      <td>{{name | slice:2}}</td>
+    </tr>
+    <tr>
+      <td>{{name}}</td>
+      <td>slice:0:3</td>
+      <td>{{name | slice:0:3}}</td>
+    </tr>
+    <tr>
+      <td>{{myArray}}</td>
+      <td>slice:7:8</td>
+      <td>{{myArray | slice:7:9}}</td>
+    </tr>
+    <tr>
+      <td>{{PI}}</td>
+      <td>number:'3.0-0'</td>
+      <td>{{PI | number:'3.0-0'}}</td>
+    </tr>
+    <tr>
+      <td>{{PI}}</td>
+      <td>number:'1.0-2'</td>
+      <td>{{PI | number:'1.0-2'}}</td>
+    </tr>
+    <tr>
+      <td>{{numberForPercent}}</td>
+      <td>percent</td>
+      <td>{{numberForPercent | percent}}</td>
+    </tr>
+    <tr>
+      <td>{{numberForPercent}}</td>
+      <td>percent:'2.1-1'</td>
+      <td>{{numberForPercent | percent:'2.1-1'}}</td>
+    </tr>
+    <tr>
+      <td>{{payAmounth}}</td>
+      <td>currency</td>
+      <td>{{payAmounth | currency}}</td>
+    </tr>
+    <tr>
+      <td>{{payAmounth}}</td>
+      <td>currency:'BLR'</td>
+      <td>{{payAmounth | currency:'BLR'}}</td>
+    </tr>
+    <tr>
+      <td>{{payAmounth}}</td>
+      <td>currency:'EUR':true</td>
+      <td>{{payAmounth | currency:'EUR':true}}</td>
+    </tr>
+    <tr>
+      <td>{{payAmounth}}</td>
+      <td>currency:'EUR':true:'4.0-0'</td>
+      <td>{{payAmounth | currency:'EUR':true:'4.0-0'}}</td>
+    </tr>
+    <tr>
+      <td>{{payAmounth}}</td>
+      <td>number:'.2-2'</td>
+      <td>{{payAmounth | number:'.2-2'}}</td>
+    </tr>
+    <tr>
+      <td>{{promiseValue}}</td>
+      <td>async</td>
+      <td>{{promiseValue | async}}</td>
+    </tr>
+    <tr>
+      <td>{{myDate}}</td>
+      <td>date</td>
+      <td>{{myDate | date}}</td>
+    </tr>
+    <tr>
+      <td>{{myDate}}</td>
+      <td>date:'short'</td>
+      <td>{{myDate | date:'short'}}</td>
+    </tr>
+    <tr>
+      <td>{{myDate}}</td>
+      <td>date:'MMMM - d'</td>
+      <td>{{myDate | date:'MMMM - d'}}</td>
+    </tr>
+    <tr>
+      <td>{{myCompleteName}}</td>
+      <td>Personal Pipe</td>
+      <td>{{myCompleteName}}</td>
+    </tr>
+    <tr>
+      <td>{{myCompleteName}}</td>
+      <td>Personal Pipe</td>
+      <td>{{myCompleteName | capitalizeString}}</td>
+    </tr>
+    <tr>
+      <td>{{name}}</td>
+      <td>
+          contrasena:{{convertToPassword}}
+          <button type="button" (click) = "convertToPassword = !convertToPassword" class="btn btn-outline-primary btn-block">
+              Activate/Deactivate
+          </button>
+      </td>
+      <td>{{name | contrasena:convertToPassword}}</td>
+    </tr>
+  </tbody>
+</table>
+  </div>
+  <h4>Slice</h4>
+  <ul>
+    <li *ngFor="let item of myArray | slice:5:8">{{item}}</li>
+  </ul>
+
+  <h4>JSON</h4>
+  <pre>
+    {{person | json}}
+  </pre>
+
+  <h4>Youtube <small>video</small></h4>
+  <iframe width="560" height="315" [src]="videoSrcUrl | secureDom:'https://www.youtube.com/embed/'"
+    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen>
+  </iframe>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
