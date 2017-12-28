@@ -73,3 +73,11 @@ hr{
 .fadeIn {
   animation-name: fadeIn;
 }
+
+.img-round{
+  border-radius: 100%;
+}
+
+.img-50{
+  width:50px;
+}

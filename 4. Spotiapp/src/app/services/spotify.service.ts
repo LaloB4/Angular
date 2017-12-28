@@ -6,21 +6,58 @@ import 'rxjs/add/operator/map';
 export class SpotifyService {
 
   artists:any = [];
+  topTracks:any = [];
+
+  spotiUrl:string = 'https://api.spotify.com/v1/';
+
+  authorizationToken:string = 'BQDW6zR_5frKSjfGZffYO0328Z7mMZtlzRIxglxDnNRk4T27ApyJRsqx9Ik-IKBp9lJomRzmGDBz-LvDlAE';
 
   constructor(public http:HttpClient) {
-      console.log("Spotify Service is ready!");
+
    }
 
-   getArtist(){
-     let url = 'https://api.spotify.com/v1/search?query=metallica&type=artist&offset=0&limit=20';
+   getHeaders():HttpHeaders{
      let headers =  new HttpHeaders({
-       authorization:'Bearer BQCKbXsqI94ts1td3hyMysi9WbGlH9-yyBwpIn8AScZUFyuYMOvCn4OwQJ8Oqv9zIyc9eQ-3UJE7WpVvlHM';
+       authorization:'Bearer ' + this.authorizationToken;
      });
+     return headers;
+   }
+
+   getSingleArtist(id:string){
+
+     let url = `${this.spotiUrl}artists/${id}`;
+     let headers = this.getHeaders();
+     return this.http.get(url, {headers});/*.map(
+          (result:any) => {
+            this.artists = result.artists.items;
+            return this.artists;
+          };
+     );*/
+
+   }
+
+   getArtist(term:string){
+
+     let url = `${this.spotiUrl}search?query=${term}&type=artist&offset=0&limit=20`;
+     let headers = this.getHeaders();
      return this.http.get(url, {headers}).map(
           (result:any) => {
             this.artists = result.artists.items;
             return this.artists;
           };
      );
+   }
+
+   getTopTracks(id:string){
+
+     let url = `${this.spotiUrl}artists/${id}/top-tracks?country=US`;
+     let headers = this.getHeaders();
+     return this.http.get(url, {headers}).map(
+          (result:any) => {
+            this.topTracks = result.tracks;
+            return this.topTracks;
+          };
+     );
+
    }
 }

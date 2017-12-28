@@ -1,0 +1,54 @@
+<div class="container top30">
+  <div class="row">
+    <div class="col-md-3">
+      <img [src]="foundArtist.images | nophoto" class="img-thumbnail img-round"/>
+    </div>
+    <div class="col-md-8">
+      <h1>{{foundArtist.name}}</h1>
+      <hr>
+      <a class="btn btn-outline-success" [routerLink] = "['/search']">
+          Back to search
+      </a>
+      <a class="btn btn-outline-danger"
+         [href] = "foundArtist.external_urls?.spotify"
+         target="_blank">
+          Open in Spotify
+      </a>
+    </div>
+  </div>
+  <div class="row top30">
+    <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Photo</th>
+            <th scope="col">Name</th>
+            <th scope="col">Popularity</th>
+            <th scope="col">Listen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let track of foundTrackResults; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>
+              <img [src]="track.album.images | nophoto" class="img-50"/>
+            </td>
+            <td>{{track.name}}</td>
+            <td>{{track.popularity}}%</td>
+            <td>
+              <!--<audio controls>
+                <source [src]="track.preview_url"/>
+                Your browser does not suppor this function!
+              </audio>-->
+              <iframe [src]="track.uri | domseguro:'https://open.spotify.com/embed?uri='"
+                      width="300"
+                      height="80"
+                      frameborder="0"
+                      allowtransparency="true">
+              </iframe>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
+</div>

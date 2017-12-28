@@ -7,13 +7,16 @@ import {SpotifyService} from '../../services/spotify.service';
 })
 export class SearchComponent{
 
-  constructor(public spotifyService:SpotifyService) {
-    this.spotifyService.getArtist().subscribe(
-      artists => {
-        console.log('Information retrieved!');
-        console.log(artists);
-      };
-    );
-  }
+  term:string = '';
 
+  constructor(public spotifyService:SpotifyService) {}
+
+  searchArtist(){
+
+    if(this.term.length == 0){
+      return;
+    }
+
+    this.spotifyService.getArtist(this.term).subscribe();
+  }
 }
