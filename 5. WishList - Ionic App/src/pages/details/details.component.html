@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>{{list.name}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+
+    <ion-card-header>
+      <ion-item>
+        <ion-label floating>List Name</ion-label>
+        <ion-input type="text" [(ngModel)]="list.name"></ion-input>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <ion-list>
+
+        <ion-item *ngFor="let item of list.items; let i = index" (click) = "changeStatus(item)">
+
+          <ion-icon item-left *ngIf="!item.finished" ios="ios-square-outline" md="md-square-outline"></ion-icon>
+          <ion-icon item-left *ngIf="item.finished"ios="ios-checkbox-outline" md="md-checkbox-outline"></ion-icon>
+          <span [class.line-over-text] = "item.finished">{{item.name}}</span>
+
+        </ion-item>
+
+      </ion-list>
+
+    </ion-card-content>
+</ion-card>
+
+<button ion-button color="danger" class="button-block" (click) = "deleteList()">
+  Delete
+</button>
+
+</ion-content>
