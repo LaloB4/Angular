@@ -1,0 +1,59 @@
+<div [ngSwitch]="message">
+  <div *ngSwitchCase="'info'"><span [ngClass]="'text-' + message">Info</span></div>
+  <div *ngSwitchCase="'warning'"><span [ngClass]="'text-' + message">Warning</span></div>
+  <div *ngSwitchCase="'danger'"><span [ngClass]="'text-' + message">Danger</span></div>
+  <div *ngSwitchCase="'success'"><span [ngClass]="'text-' + message">Success</span></div>
+  <div *ngSwitchDefault><span [ngClass]="'text-' + message">Default option</span></div>
+</div>
+
+
+<div [ngSwitch]="message">
+
+  <div *ngSwitchCase="'info'">
+    <div class="alert alert-info" role="alert">
+      This is a info alert—check it out!
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'warning'">
+    <div class="alert alert-warning" role="alert">
+      This is a warning alert—check it out!
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'danger'">
+    <div class="alert alert-danger" role="alert">
+      This is a danger alert—check it out!
+    </div>
+  </div>
+
+  <div *ngSwitchCase="'success'">
+    <div class="alert alert-success" role="alert">
+      This is a success alert—check it out!
+    </div>
+  </div>
+
+  <div *ngSwitchDefault>
+    <div class="alert alert-dark" role="alert">
+      This is a dark alert—check it out!
+    </div>
+  </div>
+
+</div>
+<div class="text-center">
+<button type="button" class="btn btn-info" (click) = "message = 'info'">
+  Info
+</button>
+<button type="button" class="btn btn-warning" (click) = "message = 'warning'">
+  Warning
+</button>
+<button type="button" class="btn btn-danger" (click) = "message = 'danger'">
+  Danger
+</button>
+<button type="button" class="btn btn-success" (click) = "message = 'success'">
+  Success
+</button>
+<button type="button" class="btn btn-dark" (click) = "message = 'noValidOption'">
+  Default - no valid option
+</button>
+</div>

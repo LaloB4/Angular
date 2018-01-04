@@ -11,12 +11,22 @@ export class ClassesComponent implements OnInit {
   alertType:string = 'alert-danger';
 
   properties:Object = {
-    danger:false;
+    danger:false
   };
+
+	execute:boolean=false;
 
   constructor() { }
 
   ngOnInit() {
   }
+
+	executeAction(){
+
+		this.execute = true;
+
+		setTimeout(()=>this.execute = false, 3000);
+
+	}
 
 }

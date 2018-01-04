@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { NgStyleComponent } from './components/ng-style/ng-style.component';
 import { CssComponent } from './components/css/css.component';
 import { ClassesComponent } from './components/classes/classes.component';
+import { HighligthedDirective } from './directives/highligthed.directive';
+import { NgSwitchComponent } from './components/ng-switch/ng-switch.component';
 
 
 @NgModule({
@@ -13,7 +15,9 @@ import { ClassesComponent } from './components/classes/classes.component';
     AppComponent,
     NgStyleComponent,
     CssComponent,
-    ClassesComponent
+    ClassesComponent,
+    HighligthedDirective,
+    NgSwitchComponent
   ],
   imports: [
     BrowserModule

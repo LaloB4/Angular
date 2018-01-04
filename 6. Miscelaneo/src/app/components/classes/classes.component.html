@@ -21,3 +21,15 @@
   (click)="properties.danger = !properties.danger">
   Change State
 </button>
+
+<br><br>
+<h3>Async Process</h3>
+<hr>
+<button type="button" class="btn btn-primary" (click) = "executeAction()" [disabled] = "execute">
+  <i class="fa"
+     [ngClass]="{'fa-refresh fa-spin': execute, 'fa-save' : !execute}"
+     aria-hidden="true">
+  </i>
+  <span *ngIf="!execute">Save changes</span>
+  <span *ngIf="execute">Saving...</span>
+</button>
