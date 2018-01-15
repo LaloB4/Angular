@@ -1,0 +1,111 @@
+<h4>Formularios <small>data</small></h4>
+<hr>
+<form [formGroup] = "form" (ngSubmit) = "postData()">
+
+  <div formGroupName="fullName">
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Nombre</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Nombre"
+               formControlName="firstName">
+
+        <div class="" *ngIf="form.get('fullName.firstName').errors?.required">
+            The first name is required
+        </div>
+        <div class="" *ngIf="form.get('fullName.firstName').errors?.minlength">
+            Min length is 3 characters
+        </div>
+
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-2 col-form-label">Apellido</label>
+      <div class="col-8">
+
+        <input class="form-control"
+               type="text"
+               placeholder="Apellido"
+               formControlName="lastName">
+    <!--
+         <div class="" *ngIf="form.controls.lastName.errors?.required">
+              The last name is required
+          </div>-->
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Correo</label>
+    <div class="col-md-8">
+
+      <input class="form-control"
+             type="email"
+             placeholder="Correo electrónico"
+             formControlName="email">
+<!--
+      <div class="" *ngIf="form.controls.email.errors?.required">
+            The email is required
+      </div>
+      <div class="" *ngIf="form.controls.email.errors?.pattern">
+            Please, enter a valid email
+      </div>-->
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Hobbies</label>
+    <div class="col-md-8" formArrayName="hobbies">
+
+        <input *ngFor="let hibbie of form.controls['hobbies'].controls; let i = index"
+               class="form-control"
+               type="text"
+               [formControlName]="i">
+    </div>
+  </div>
+
+  <button type="button" (click)="addNewHobbie()" class="btn btn-primary">
+    Add a new one
+  </button>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">username</label>
+    <div class="col-md-8">
+        <input type="text" formControlName="username" class="form-control" placeholder="username">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Password</label>
+    <div class="col-md-8">
+        <input type="password" formControlName="password1" class="form-control">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Confirm the password</label>
+    <div class="col-md-8">
+        <input type="password" formControlName="password2" class="form-control">
+    </div>
+  </div>
+<!--[disabled] = "!form.valid"-->
+  <div class="form-group row">
+    <label class="col-2 col-form-label">&nbsp;</label>
+    <div class="input-group col-md-8">
+      <button  type="submit" class="btn btn-outline-primary">
+        Guardar
+      </button>
+    </div>
+  </div>
+
+</form>
+<br><br><br>
+{{form.valid}}<br>
+{{form.status}}
+<br><br><br>
