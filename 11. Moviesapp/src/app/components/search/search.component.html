@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row main-container text-right">
+    <div class="col-md-12 search-box">
+
+      <input  name="movieToSearch" type="text" (keydown.enter)="search()" class="control-form" [(ngModel)]="movieToSearch">
+      <button class="btn btn-outline-primary" (click)="search()">Search</button>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-12">
+        <!--Begin each movie-->
+        <div class="card-columns">
+
+          <div class="card" *ngFor="let movie of movieResult" [routerLink] = "['/details', movie.original_title, 2, movieToSearch]">
+            <img class="card-img-top" src="{{movie.poster_path | image}}" alt="Card image cap">
+          </div>
+
+        </div>
+        <!--End each movie-->
+      </div>
+
+  </div>
+
+</div>

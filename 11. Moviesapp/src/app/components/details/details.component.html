@@ -1,0 +1,30 @@
+<div class="container main-container">
+
+  <h1>Movie details</h1>
+  <hr>
+
+  <div class="row">
+
+    <div class="col-md-4 text-center">
+      <img src="{{movieToSee.poster_path | image:true}}" class="img-fluid" alt="Responsive image">
+      <button (click) = "backTo()" class="btn btn-danger btn-block button-margin">Back</button>
+    </div>
+
+    <div class="col-md-8">
+      <h2>{{movieToSee.original_title | text}}</h2>
+
+      <h5>Sinópsis</h5>
+      <p>
+          {{movieToSee.overview | text}}
+      </p>
+      <h6>Release date: <small>{{movieToSee.release_date | text}}</small></h6>
+      <h6>Original language: <small>{{movieToSee.original_language | text}}</small></h6>
+      <h6>Vote average: <small>{{movieToSee.vote_average | text}}</small></h6>
+
+    </div>
+
+  </div>
+
+  <hr>
+
+</div>

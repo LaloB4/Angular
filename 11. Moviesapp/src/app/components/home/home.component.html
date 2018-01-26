@@ -1,0 +1,49 @@
+<div class="container main-container">
+
+  <h1>Current movies in theater</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+
+      <!--Begin each movie-->
+      <div class="card-columns">
+
+        <div class="card" *ngFor="let movie of currentMovies" [routerLink] = "['/details', movie.original_title, 1, 'movie']">
+          <img class="card-img-top img-fluid" src="{{movie.poster_path | image}}" alt="Card image cap">
+        </div>
+      </div>
+      <!--End each movie-->
+
+    </div>
+  </div>
+
+  <h1>Popular movies</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <!--Begin each movie-->
+      <div class="card-columns">
+
+        <div class="card" *ngFor="let movie of popularMovies" [routerLink] = "['/details', movie.original_title, 1, 'movie']">
+          <img class="card-img-top" src="{{movie.poster_path | image}}" alt="Card image cap">
+        </div>
+      </div>
+      <!--End each movie-->
+    </div>
+  </div>
+
+  <h1>Most popular kids movies</h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-12">
+      <!--Begin each movie-->
+      <div class="card-columns">
+        <div class="card" *ngFor="let movie of kidMovies" [routerLink] = "['/details', movie.original_title, 1, 'movie']">
+          <img class="card-img-top" src="{{movie.poster_path | image}}" alt="Card image cap">
+        </div>
+      </div>
+      <!--End each movie-->
+    </div>
+  </div>
+
+</div>
